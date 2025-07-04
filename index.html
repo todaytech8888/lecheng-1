@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐成AI智能自动复利交易系统 - 综合报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #2563eb, #0d9488);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem; /* Reduced padding for smaller screens */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .card {
+                padding: 2.5rem;
+            }
+        }
+        .section-title {
+            font-size: 1.875rem; /* Reduced size for smaller screens */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .section-title {
+                font-size: 2.25rem;
+            }
+        }
+        .section-subtitle {
+            font-size: 1.125rem; /* Reduced size for smaller screens */
+            color: #475569;
+            text-align: center;
+            max-w-3xl;
+            margin: 0 auto 3rem auto;
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .section-subtitle {
+                font-size: 1.25rem;
+            }
+        }
+        .kpi-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+        .kpi-value { font-size: 2.25rem; font-weight: 700; line-height: 1.2; }
+        .kpi-label { font-size: 1rem; color: #64748b; margin-top: 0.5rem; }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #3b82f6;
+            padding: 4px;
+            background-color: white;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .dialogue-box {
+            position: relative;
+            background-color: #eff6ff;
+            border-left: 5px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        .dialogue-box-secondary {
+             background-color: #f0fdf4;
+             border-left-color: #22c55e;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #2563eb, #0d9488);
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: #1e293b;
+        }
+        .btn-secondary:hover {
+            background-color: #cbd5e1;
+            transform: scale(1.05);
+        }
+        /* -- 颜色强调 -- */
+        .highlight-blue { color: #2563eb; font-weight: 700; }
+        .highlight-teal { color: #0d9488; font-weight: 700; }
+        .highlight-amber { color: #d97706; font-weight: 700; }
+        .highlight-indigo { color: #4f46e5; font-weight: 700; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 py-12 md:py-16">
+
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-gradient">乐成AI智能自动复利交易系统</h1>
+            <p class="text-xl text-slate-600 mt-6">五年<span class="highlight-teal">732%</span>回报率，专为稳健投资者打造,风险控制与稳定盈利的典范</p>
+        </header>
+
+     <section class="mb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="kpi-card">
+                    <p class="kpi-label">总净利润</p>
+                    <p class="kpi-value text-green-600">+$7,328</p>
+                </div>
+                <div class="kpi-card">
+                    <p class="kpi-label">盈利因子</p>
+                    <p class="kpi-value highlight-blue">1.81</p>
+                </div>
+                <div class="kpi-card">
+                    <p class="kpi-label">最大回撤</p>
+                    <p class="kpi-value highlight-amber">18.14%</p>
+                </div>
+                <div class="kpi-card">
+                    <p class="kpi-label">胜率</p>
+                    <p class="kpi-value highlight-blue">68.49%</p>
+                </div>
+            </div>
+        </section>
+
+            <div class="text-center mb-20">
+                <h2 class="section-title">五年业绩表现</h2>
+                <p class="section-subtitle">策略净值曲线平滑向上，展示了强大的稳定性和穿越牛熊的抗风险能力。</p>
+                <div class="bg-white p-4 rounded-xl shadow-lg max-w-4xl mx-auto">
+                    <!-- 更新：恢复本地GIF文件路径。请确保此文件与HTML在同一目录 -->
+                    <img src="./xu第三阶段5年测试优最终报告.gif" 
+                         alt="策略净值曲线图" 
+                         class="w-full h-auto rounded-md"
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x450/e2e8f0/475569?text=五年业绩表现曲线图+(本地图片加载失败)';">
+                </div>
+            </div>
+
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">策略核心优势</h2>
+                <p class="mt-4 text-lg max-w-3xl mx-auto text-slate-600">独创的“<span class="highlight-indigo">三位一体</span>”智能过滤系统，确保只在最有利的市场条件下执行交易。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-4xl text-sky-500 mb-4">📈</div>
+                    <h3 class="text-xl font-bold mb-2">宏观趋势判断</h3>
+                    <p class="text-slate-600">运用<span class="highlight-blue">200周期EMA</span>判断长期市场方向，确保只顺应大势，避免逆势交易带来的不必要风险。</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-4xl text-sky-500 mb-4">💪</div>
+                    <h3 class="text-xl font-bold mb-2">趋势强度确认</h3>
+                    <p class="text-slate-600">利用<span class="highlight-blue">ADX指标</span>衡量趋势的“力量”，有效过滤大量充满不确定性的盘整行情。</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-4xl text-sky-500 mb-4">⏰</div>
+                    <h3 class="text-xl font-bold mb-2">黄金时段锁定</h3>
+                    <p class="text-slate-600">只在<span class="highlight-blue">伦敦/纽约重叠</span>的黄金时段交易，最大化盈利潜力，规避低流动性风险。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card mb-16">
+            <h2 class="section-title">打工族福音</h2>
+            <p class="section-subtitle">我们的系统并非简单的交易工具，而是一套经过科学验证、追求长期稳定复利的资产管理方案。</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-4">
+                    <div class="text-5xl text-blue-500 mb-4">📈</div>
+                    <h3 class="text-xl font-bold mb-2"><span class="highlight-teal">稳定复利</span></h3>
+                    <p class="text-slate-500">追求长期、可持续的复利增长，而非短期暴利。</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-5xl text-blue-500 mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold mb-2"><span class="highlight-amber">风控优先</span></h3>
+                    <p class="text-slate-500">以低于20%的极低回撤为目标，严守资金安全底线。</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-5xl text-blue-500 mb-4">🤖</div>
+                    <h3 class="text-xl font-bold mb-2"><span class="highlight-indigo">智能过滤</span></h3>
+                    <p class="text-slate-500">独创“三位一体”过滤系统，只在最佳时机出手。</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-5xl text-blue-500 mb-4">🕒</div>
+                    <h3 class="text-xl font-bold mb-2"><span class="highlight-teal">解放时间</span></h3>
+                    <p class="text-slate-500">系统全自动运行，让您回归工作与生活。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20 bg-white p-8 md:p-12 rounded-lg shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">卓越的抗风险能力</h2>
+                    <p class="text-lg text-slate-600 mb-6">对于投资者而言，控制回撤、保护本金是长期生存的基石。本策略在这方面表现堪称典范。</p>
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-amber">极低回撤：</strong>最大回撤仅为<span class="highlight-amber">18.14%</span>，远低于行业30%的风险阈值。</div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-blue">超高胜率：</strong><span class="highlight-blue">68.49%</span>的胜率极大缓解交易者心理压力，易于坚持。</div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-indigo">动态风控：</strong>采用<span class="highlight-indigo">1%账户余额</span>的动态风险模型，自动调整仓位，保护本金。</div></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">稳定且可观的盈利</h2>
+                    <p class="text-lg text-slate-600 mb-6">在严格风控的前提下，策略依然展现了强大的、可持续的盈利能力。</p>
+                     <ul class="space-y-4 text-slate-700">
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-teal">7倍增长：</strong>5年内将$1000初始资金增长至$8328。</div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-teal">健康模型：</strong>盈利因子高达<span class="highlight-teal">1.81</span>，每亏损1美元，能赚回1.81美元。</div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-indigo">动态止盈：</strong>采用基准线追踪止损，积小胜为大胜，是高胜率和低回撤的保障。</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">报告深度解读</h2>
+            <p class="section-subtitle">一份冰冷的数据报告，在不同人的眼中，究竟意味着什么？</p>
+    
+            <div class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <!-- 更新：更换为符合描述的亚裔男性头像 -->
+                    <img src="./亚裔男.png" alt="金融精英陈总" class="avatar mx-auto mb-4">
+                    <h3 class="text-2xl font-bold">陈总</h3>
+                    <p class="text-slate-500">前华尔街投行精英，管理过亿级资产，现为家族办公室提供咨询。他信奉数据、纪律和长期主义，对任何投资标的都以最严苛的机构标准进行评估。</p>
+                </div>
+                <div class="text-center">
+                    <!-- 更新：更换为符合描述的亚裔女性头像 -->
+                    <img src="./亚裔女.png" alt="普通上班族小张" class="avatar mx-auto mb-4">
+                    <h3 class="text-2xl font-bold">小张</h3>
+                    <p class="text-slate-500">国内一线城市普通上班族，每日通勤于钢筋水泥的丛林。他希望寻找一个安全、可靠、不占用太多精力的副业，为家庭创造“第二收入”，让生活多一份从容和选择。</p>
+                </div>
+            </div>
+
+            <div class="mb-20 card text-center">
+                <h3 class="text-2xl font-bold mb-4">金融专家VS普通上班族--直面人生的报告解读</h3>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-6">点击播放，聆听专家对策略的深度剖析。</p>
+                <audio controls class="w-full max-w-md mx-auto">
+                    <!-- 提醒：请在此处替换为有效的音频文件链接。 -->
+                    <!-- <source src="./乐成AI交易系统：普通人求稳与专业投资者增值的双重解读.mp3" type="audio/mpeg"> -->
+                    您的浏览器不支持音频播放。
+                </audio>
+            </div>
+
+            <div class="card mb-16">
+                <h3 class="text-2xl font-bold text-center mb-10">第一章：策略的灵魂 —— 为何它能如此稳健？</h3>
+                <div class="dialogue-box">
+                    <p class="font-semibold text-blue-800">陈总（前华尔街精英）：</p>
+                    <p class="mt-2 text-lg">“我见过太多复杂的模型，但最终能穿越周期的，一定是那些坚守纪律、拥有强大过滤机制的系统。这套策略的‘<span class="highlight-indigo">三位一体</span>’过滤系统让我印象深刻：它用EMA判断大势，用ADX确认力度，再用时间窗口锁定主战场。这本质上是**在波动中寻找秩序**，排除了绝大部分的随机干扰，只留下高概率的交易机会。这是专业机构级别的风控逻辑。”</p>
+                </div>
+                <div class="dialogue-box dialogue-box-secondary mt-6">
+                    <p class="font-semibold text-green-800">小张（普通上班族）：</p>
+                    <p class="mt-2 text-lg">“说实话，那些复杂的指标我并不全懂。但陈总的话让我明白了一点：我不需要每天去猜市场会涨还是会跌。这个系统就像一个聪明的机器人，它只在**最有把握的时候**才出手。我平时安心上班，周末陪伴家人，不用提心吊胆地看盘，这种**确定性和安全感**，对我来说比什么都重要。”</p>
+                </div>
+            </div>
+
+            <div class="card mb-16">
+                <h3 class="text-2xl font-bold text-center mb-10">第二章：风险与回报 —— 两种视角下的财富增长之路</h3>
+                 <div class="dialogue-box dialogue-box-secondary">
+                    <p class="font-semibold text-green-800">小张：</p>
+                    <p class="mt-2 text-lg">“对我来说，最激动人心的计划是——当我的<span class="highlight-teal">$1000本金</span>翻倍到$2000时，我就把$1000本金取出来。剩下的就全是利润了，相当于一个‘<span class="highlight-indigo">零成本</span>’的资产在为我工作！以后每当它再翻倍，我都能取出一部分钱，给家人换个新手机，或者计划一次全家旅行。**这种看得见、摸得着的改变，就是我投资的最大动力。**”</p>
+                </div>
+                 <div class="dialogue-box mt-6">
+                    <p class="font-semibold text-blue-800">陈总：</p>
+                    <p class="mt-2 text-lg">“小张的计划非常聪明，体现了普通投资者对安全性的重视。而从资产配置的角度看，这套策略的价值在于它提供了一条**与主观交易或传统投资相关性极低的‘<span class="highlight-indigo">第二增长曲线</span>’**。<span class="highlight-amber">18.14%的最大回撤</span>，对于黄金这种高波动品种而言堪称典范。这意味着，即使在最不利的行情下，系统的风险敞口也得到了严格控制。**长期持有这样一套正向期望且风险可控的系统，通过<span class="highlight-teal">复利效应</span>，其最终创造的财富将是惊人的。这才是资产增值的核心。**”</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h2 class="section-title">下载中心</h2>
+                <p class="section-subtitle">深入了解，亲自验证。获取详细的PDF分析报告和原始HTML测试数据。</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="./最终报告.pdf" class="btn btn-primary" >下载PDF详细报告</a>
+                    <a href="./xu第三阶段5年测试优最终报告.htm" class="btn btn-secondary">查看原始HTML数据</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="text-center py-8 mt-12 border-t border-slate-200">
+        <p class="text-slate-500">&copy; 2025 乐成AI智能自动复利交易系统. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
