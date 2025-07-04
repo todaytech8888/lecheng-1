@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en"> <!-- Default language set to English -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>乐成AI智能自动复利交易系统 - 综合报告</title>
+    <!-- The title will be set by JavaScript -->
+    <title>AI Auto Compounding Trading System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Noto Sans for SC/TC, Inter for English -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Noto Sans SC', sans-serif;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
             background-color: #f1f5f9;
             color: #1e293b;
         }
@@ -22,36 +24,30 @@
         .card {
             background-color: #ffffff;
             border-radius: 0.75rem;
-            padding: 1.5rem; /* Reduced padding for smaller screens */
+            padding: 1.5rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        @media (min-width: 768px) { /* md breakpoint */
-            .card {
-                padding: 2.5rem;
-            }
+        @media (min-width: 768px) {
+            .card { padding: 2.5rem; }
         }
         .section-title {
-            font-size: 1.875rem; /* Reduced size for smaller screens */
+            font-size: 1.875rem;
             font-weight: 700;
             margin-bottom: 1rem;
             text-align: center;
         }
-        @media (min-width: 768px) { /* md breakpoint */
-            .section-title {
-                font-size: 2.25rem;
-            }
+        @media (min-width: 768px) {
+            .section-title { font-size: 2.25rem; }
         }
         .section-subtitle {
-            font-size: 1.125rem; /* Reduced size for smaller screens */
+            font-size: 1.125rem;
             color: #475569;
             text-align: center;
             max-w-3xl;
             margin: 0 auto 3rem auto;
         }
-        @media (min-width: 768px) { /* md breakpoint */
-            .section-subtitle {
-                font-size: 1.25rem;
-            }
+        @media (min-width: 768px) {
+            .section-subtitle { font-size: 1.25rem; }
         }
         .kpi-card {
             background-color: #ffffff;
@@ -111,7 +107,6 @@
             background-color: #cbd5e1;
             transform: scale(1.05);
         }
-        /* -- 颜色强调 -- */
         .highlight-blue { color: #2563eb; font-weight: 700; }
         .highlight-teal { color: #0d9488; font-weight: 700; }
         .highlight-amber { color: #d97706; font-weight: 700; }
@@ -120,93 +115,101 @@
 </head>
 <body class="antialiased">
 
+    <!-- Language Switcher -->
+    <div class="absolute top-4 right-4 z-10">
+        <select id="language-switcher" class="bg-white border border-gray-300 rounded-md shadow-sm p-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <option value="zh-CN">简体中文</option>
+            <option value="zh-TW">繁體中文</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
     <div class="container mx-auto px-4 py-12 md:py-16">
 
         <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-bold text-gradient">乐成AI智能自动复利交易系统</h1>
-            <p class="text-xl text-slate-600 mt-6">五年<span class="highlight-teal">732%</span>回报率，专为稳健投资者打造,风险控制与稳定盈利的典范</p>
+            <h1 class="text-4xl md:text-6xl font-bold text-gradient" data-lang-key="headerTitle"></h1>
+            <p class="text-xl text-slate-600 mt-6" data-lang-key="headerSubtitle"></p>
         </header>
 
      <section class="mb-16">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div class="kpi-card">
-                    <p class="kpi-label">总净利润</p>
+                    <p class="kpi-label" data-lang-key="kpiTotalProfitLabel"></p>
                     <p class="kpi-value text-green-600">+$7,328</p>
                 </div>
                 <div class="kpi-card">
-                    <p class="kpi-label">盈利因子</p>
+                    <p class="kpi-label" data-lang-key="kpiProfitFactorLabel"></p>
                     <p class="kpi-value highlight-blue">1.81</p>
                 </div>
                 <div class="kpi-card">
-                    <p class="kpi-label">最大回撤</p>
+                    <p class="kpi-label" data-lang-key="kpiMaxDrawdownLabel"></p>
                     <p class="kpi-value highlight-amber">18.14%</p>
                 </div>
                 <div class="kpi-card">
-                    <p class="kpi-label">胜率</p>
+                    <p class="kpi-label" data-lang-key="kpiWinRateLabel"></p>
                     <p class="kpi-value highlight-blue">68.49%</p>
                 </div>
             </div>
         </section>
 
             <div class="text-center mb-20">
-                <h2 class="section-title">五年业绩表现</h2>
-                <p class="section-subtitle">策略净值曲线平滑向上，展示了强大的稳定性和穿越牛熊的抗风险能力。</p>
+                <h2 class="section-title" data-lang-key="performanceTitle"></h2>
+                <p class="section-subtitle" data-lang-key="performanceSubtitle"></p>
                 <div class="bg-white p-4 rounded-xl shadow-lg max-w-4xl mx-auto">
-                    <!-- 更新：恢复本地GIF文件路径。请确保此文件与HTML在同一目录 -->
-                    <img src="./xu第三阶段5年测试优最终报告.gif" 
-                         alt="策略净值曲线图" 
+                    <img id="performance-graph" src="./xu第三阶段5年测试优最终报告.gif" 
+                         alt="" data-lang-key="performanceGraphAlt"
                          class="w-full h-auto rounded-md"
-                         onerror="this.onerror=null;this.src='https://placehold.co/800x450/e2e8f0/475569?text=五年业绩表现曲线图+(本地图片加载失败)';">
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x450/e2e8f0/475569?text=Chart+Load+Failed';">
                 </div>
             </div>
 
         <section class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">策略核心优势</h2>
-                <p class="mt-4 text-lg max-w-3xl mx-auto text-slate-600">独创的“<span class="highlight-indigo">三位一体</span>”智能过滤系统，确保只在最有利的市场条件下执行交易。</p>
+                <h2 class="text-3xl font-bold" data-lang-key="coreAdvantageTitle"></h2>
+                <p class="mt-4 text-lg max-w-3xl mx-auto text-slate-600" data-lang-key="coreAdvantageSubtitle"></p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div class="bg-white p-8 rounded-lg shadow-md">
                     <div class="text-4xl text-sky-500 mb-4">📈</div>
-                    <h3 class="text-xl font-bold mb-2">宏观趋势判断</h3>
-                    <p class="text-slate-600">运用<span class="highlight-blue">200周期EMA</span>判断长期市场方向，确保只顺应大势，避免逆势交易带来的不必要风险。</p>
+                    <h3 class="text-xl font-bold mb-2" data-lang-key="advantage1Title"></h3>
+                    <p class="text-slate-600" data-lang-key="advantage1Desc"></p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-md">
                     <div class="text-4xl text-sky-500 mb-4">💪</div>
-                    <h3 class="text-xl font-bold mb-2">趋势强度确认</h3>
-                    <p class="text-slate-600">利用<span class="highlight-blue">ADX指标</span>衡量趋势的“力量”，有效过滤大量充满不确定性的盘整行情。</p>
+                    <h3 class="text-xl font-bold mb-2" data-lang-key="advantage2Title"></h3>
+                    <p class="text-slate-600" data-lang-key="advantage2Desc"></p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-md">
                     <div class="text-4xl text-sky-500 mb-4">⏰</div>
-                    <h3 class="text-xl font-bold mb-2">黄金时段锁定</h3>
-                    <p class="text-slate-600">只在<span class="highlight-blue">伦敦/纽约重叠</span>的黄金时段交易，最大化盈利潜力，规避低流动性风险。</p>
+                    <h3 class="text-xl font-bold mb-2" data-lang-key="advantage3Title"></h3>
+                    <p class="text-slate-600" data-lang-key="advantage3Desc"></p>
                 </div>
             </div>
         </section>
 
         <section class="card mb-16">
-            <h2 class="section-title">打工族福音</h2>
-            <p class="section-subtitle">我们的系统并非简单的交易工具，而是一套经过科学验证、追求长期稳定复利的资产管理方案。</p>
+            <h2 class="section-title" data-lang-key="gospelTitle"></h2>
+            <p class="section-subtitle" data-lang-key="gospelSubtitle"></p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="text-center p-4">
                     <div class="text-5xl text-blue-500 mb-4">📈</div>
-                    <h3 class="text-xl font-bold mb-2"><span class="highlight-teal">稳定复利</span></h3>
-                    <p class="text-slate-500">追求长期、可持续的复利增长，而非短期暴利。</p>
+                    <h3 class="text-xl font-bold mb-2" data-lang-key="feature1Title"></h3>
+                    <p class="text-slate-500" data-lang-key="feature1Desc"></p>
                 </div>
                 <div class="text-center p-4">
                     <div class="text-5xl text-blue-500 mb-4">🛡️</div>
-                    <h3 class="text-xl font-bold mb-2"><span class="highlight-amber">风控优先</span></h3>
-                    <p class="text-slate-500">以低于20%的极低回撤为目标，严守资金安全底线。</p>
+                    <h3 class="text-xl font-bold mb-2" data-lang-key="feature2Title"></h3>
+                    <p class="text-slate-500" data-lang-key="feature2Desc"></p>
                 </div>
                 <div class="text-center p-4">
                     <div class="text-5xl text-blue-500 mb-4">🤖</div>
-                    <h3 class="text-xl font-bold mb-2"><span class="highlight-indigo">智能过滤</span></h3>
-                    <p class="text-slate-500">独创“三位一体”过滤系统，只在最佳时机出手。</p>
+                    <h3 class="text-xl font-bold mb-2" data-lang-key="feature3Title"></h3>
+                    <p class="text-slate-500" data-lang-key="feature3Desc"></p>
                 </div>
                 <div class="text-center p-4">
                     <div class="text-5xl text-blue-500 mb-4">🕒</div>
-                    <h3 class="text-xl font-bold mb-2"><span class="highlight-teal">解放时间</span></h3>
-                    <p class="text-slate-500">系统全自动运行，让您回归工作与生活。</p>
+                    <h3 class="text-xl font-bold mb-2" data-lang-key="feature4Title"></h3>
+                    <p class="text-slate-500" data-lang-key="feature4Desc"></p>
                 </div>
             </div>
         </section>
@@ -214,85 +217,82 @@
         <section class="mb-20 bg-white p-8 md:p-12 rounded-lg shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold mb-4">卓越的抗风险能力</h2>
-                    <p class="text-lg text-slate-600 mb-6">对于投资者而言，控制回撤、保护本金是长期生存的基石。本策略在这方面表现堪称典范。</p>
+                    <h2 class="text-3xl font-bold mb-4" data-lang-key="riskTitle"></h2>
+                    <p class="text-lg text-slate-600 mb-6" data-lang-key="riskSubtitle"></p>
                     <ul class="space-y-4 text-slate-700">
-                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-amber">极低回撤：</strong>最大回撤仅为<span class="highlight-amber">18.14%</span>，远低于行业30%的风险阈值。</div></li>
-                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-blue">超高胜率：</strong><span class="highlight-blue">68.49%</span>的胜率极大缓解交易者心理压力，易于坚持。</div></li>
-                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-indigo">动态风控：</strong>采用<span class="highlight-indigo">1%账户余额</span>的动态风险模型，自动调整仓位，保护本金。</div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div data-lang-key="riskPoint1"></div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div data-lang-key="riskPoint2"></div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div data-lang-key="riskPoint3"></div></li>
                     </ul>
                 </div>
                 <div>
-                    <h2 class="text-3xl font-bold mb-4">稳定且可观的盈利</h2>
-                    <p class="text-lg text-slate-600 mb-6">在严格风控的前提下，策略依然展现了强大的、可持续的盈利能力。</p>
+                    <h2 class="text-3xl font-bold mb-4" data-lang-key="profitTitle"></h2>
+                    <p class="text-lg text-slate-600 mb-6" data-lang-key="profitSubtitle"></p>
                      <ul class="space-y-4 text-slate-700">
-                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-teal">7倍增长：</strong>5年内将$1000初始资金增长至$8328。</div></li>
-                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-teal">健康模型：</strong>盈利因子高达<span class="highlight-teal">1.81</span>，每亏损1美元，能赚回1.81美元。</div></li>
-                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div><strong class="highlight-indigo">动态止盈：</strong>采用基准线追踪止损，积小胜为大胜，是高胜率和低回撤的保障。</div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div data-lang-key="profitPoint1"></div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div data-lang-key="profitPoint2"></div></li>
+                        <li class="flex items-start"><span class="text-green-500 font-bold mr-2">✔</span><div data-lang-key="profitPoint3"></div></li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">报告深度解读</h2>
-            <p class="section-subtitle">一份冰冷的数据报告，在不同人的眼中，究竟意味着什么？</p>
+            <h2 class="section-title" data-lang-key="deepDiveTitle"></h2>
+            <p class="section-subtitle" data-lang-key="deepDiveSubtitle"></p>
     
             <div class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="text-center">
-                    <!-- 更新：更换为符合描述的亚裔男性头像 -->
-                    <img src="./亚裔男.png" alt="金融精英陈总" class="avatar mx-auto mb-4">
-                    <h3 class="text-2xl font-bold">陈总</h3>
-                    <p class="text-slate-500">前华尔街投行精英，管理过亿级资产，现为家族办公室提供咨询。他信奉数据、纪律和长期主义，对任何投资标的都以最严苛的机构标准进行评估。</p>
+                    <img id="avatar-chen" src="https://images.unsplash.com/photo-1624625729119-a09459be5286?q=80&w=1887&auto=format&fit=crop" alt="" data-lang-key="avatarChenAlt" class="avatar mx-auto mb-4">
+                    <h3 class="text-2xl font-bold" data-lang-key="chenName"></h3>
+                    <p class="text-slate-500" data-lang-key="chenDesc"></p>
                 </div>
                 <div class="text-center">
-                    <!-- 更新：更换为符合描述的亚裔女性头像 -->
-                    <img src="./亚裔女.png" alt="普通上班族小张" class="avatar mx-auto mb-4">
-                    <h3 class="text-2xl font-bold">小张</h3>
-                    <p class="text-slate-500">国内一线城市普通上班族，每日通勤于钢筋水泥的丛林。他希望寻找一个安全、可靠、不占用太多精力的副业，为家庭创造“第二收入”，让生活多一份从容和选择。</p>
+                    <img id="avatar-zhang" src="https://images.unsplash.com/photo-1581382575275-972c1a4574e5?q=80&w=1887&auto=format&fit=crop" alt="" data-lang-key="avatarZhangAlt" class="avatar mx-auto mb-4">
+                    <h3 class="text-2xl font-bold" data-lang-key="zhangName"></h3>
+                    <p class="text-slate-500" data-lang-key="zhangDesc"></p>
                 </div>
             </div>
 
             <div class="mb-20 card text-center">
-                <h3 class="text-2xl font-bold mb-4">金融专家VS普通上班族--直面人生的报告解读</h3>
-                <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-6">点击播放，聆听专家对策略的深度剖析。</p>
+                <h3 class="text-2xl font-bold mb-4" data-lang-key="audioTitle"></h3>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-6" data-lang-key="audioSubtitle"></p>
                 <audio controls class="w-full max-w-md mx-auto">
-                    <!-- 注意：此音频文件需要您上传到GitHub仓库才能播放 -->
                     <source src="./乐成AI交易系统：普通人求稳与专业投资者增值的双重解读.mp3" type="audio/mpeg">
-                    您的浏览器不支持音频播放。
+                    <span data-lang-key="audioNotSupported"></span>
                 </audio>
             </div>
 
             <div class="card mb-16">
-                <h3 class="text-2xl font-bold text-center mb-10">第一章：策略的灵魂 —— 为何它能如此稳健？</h3>
+                <h3 class="text-2xl font-bold text-center mb-10" data-lang-key="chapter1Title"></h3>
                 <div class="dialogue-box">
-                    <p class="font-semibold text-blue-800">陈总（前华尔街精英）：</p>
-                    <p class="mt-2 text-lg">“我见过太多复杂的模型，但最终能穿越周期的，一定是那些坚守纪律、拥有强大过滤机制的系统。这套策略的‘<span class="highlight-indigo">三位一体</span>’过滤系统让我印象深刻：它用EMA判断大势，用ADX确认力度，再用时间窗口锁定主战场。这本质上是**在波动中寻找秩序**，排除了绝大部分的随机干扰，只留下高概率的交易机会。这是专业机构级别的风控逻辑。”</p>
+                    <p class="font-semibold text-blue-800" data-lang-key="chenDialogue1Name"></p>
+                    <p class="mt-2 text-lg" data-lang-key="chenDialogue1Text"></p>
                 </div>
                 <div class="dialogue-box dialogue-box-secondary mt-6">
-                    <p class="font-semibold text-green-800">小张（普通上班族）：</p>
-                    <p class="mt-2 text-lg">“说实话，那些复杂的指标我并不全懂。但陈总的话让我明白了一点：我不需要每天去猜市场会涨还是会跌。这个系统就像一个聪明的机器人，它只在**最有把握的时候**才出手。我平时安心上班，周末陪伴家人，不用提心吊胆地看盘，这种**确定性和安全感**，对我来说比什么都重要。”</p>
+                    <p class="font-semibold text-green-800" data-lang-key="zhangDialogue1Name"></p>
+                    <p class="mt-2 text-lg" data-lang-key="zhangDialogue1Text"></p>
                 </div>
             </div>
 
             <div class="card mb-16">
-                <h3 class="text-2xl font-bold text-center mb-10">第二章：风险与回报 —— 两种视角下的财富增长之路</h3>
+                <h3 class="text-2xl font-bold text-center mb-10" data-lang-key="chapter2Title"></h3>
                  <div class="dialogue-box dialogue-box-secondary">
-                    <p class="font-semibold text-green-800">小张：</p>
-                    <p class="mt-2 text-lg">“对我来说，最激动人心的计划是——当我的<span class="highlight-teal">$1000本金</span>翻倍到$2000时，我就把$1000本金取出来。剩下的就全是利润了，相当于一个‘<span class="highlight-indigo">零成本</span>’的资产在为我工作！以后每当它再翻倍，我都能取出一部分钱，给家人换个新手机，或者计划一次全家旅行。**这种看得见、摸得着的改变，就是我投资的最大动力。**”</p>
+                    <p class="font-semibold text-green-800" data-lang-key="zhangDialogue2Name"></p>
+                    <p class="mt-2 text-lg" data-lang-key="zhangDialogue2Text"></p>
                 </div>
                  <div class="dialogue-box mt-6">
-                    <p class="font-semibold text-blue-800">陈总：</p>
-                    <p class="mt-2 text-lg">“小张的计划非常聪明，体现了普通投资者对安全性的重视。而从资产配置的角度看，这套策略的价值在于它提供了一条**与主观交易或传统投资相关性极低的‘<span class="highlight-indigo">第二增长曲线</span>’**。<span class="highlight-amber">18.14%的最大回撤</span>，对于黄金这种高波动品种而言堪称典范。这意味着，即使在最不利的行情下，系统的风险敞口也得到了严格控制。**长期持有这样一套正向期望且风险可控的系统，通过<span class="highlight-teal">复利效应</span>，其最终创造的财富将是惊人的。这才是资产增值的核心。**”</p>
+                    <p class="font-semibold text-blue-800" data-lang-key="chenDialogue2Name"></p>
+                    <p class="mt-2 text-lg" data-lang-key="chenDialogue2Text"></p>
                 </div>
             </div>
 
             <div class="text-center">
-                <h2 class="section-title">下载中心</h2>
-                <p class="section-subtitle">深入了解，亲自验证。获取详细的PDF分析报告和原始HTML测试数据。</p>
+                <h2 class="section-title" data-lang-key="downloadCenterTitle"></h2>
+                <p class="section-subtitle" data-lang-key="downloadCenterSubtitle"></p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <a href="./最终报告.pdf" class="btn btn-primary" >下载PDF详细报告</a>
-                    <a href="./xu第三阶段5年测试优最终报告.htm" class="btn btn-secondary">查看原始HTML数据</a>
+                    <a href="./最终报告.pdf" class="btn btn-primary" data-lang-key="downloadPdfButton"></a>
+                    <a href="./xu第三阶段5年测试优最终报告.htm" class="btn btn-secondary" data-lang-key="viewHtmlButton"></a>
                 </div>
             </div>
         </section>
@@ -300,8 +300,253 @@
     </div>
 
     <footer class="text-center py-8 mt-12 border-t border-slate-200">
-        <p class="text-slate-500">&copy; 2025 乐成AI智能自动复利交易系统. All Rights Reserved.</p>
+        <p class="text-slate-500" data-lang-key="footerText"></p>
     </footer>
 
-</body>
-</html>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. TRANSLATION DATA ---
+            const translations = {
+                'en': {
+                    pageTitle: "Lecheng AI Auto Compounding Trading System - Comprehensive Report",
+                    headerTitle: "Lecheng AI Auto Compounding Trading System",
+                    headerSubtitle: "A 732% return in five years, designed for stable investors, a model of risk control and steady profitability.",
+                    kpiTotalProfitLabel: "Total Net Profit",
+                    kpiProfitFactorLabel: "Profit Factor",
+                    kpiMaxDrawdownLabel: "Max Drawdown",
+                    kpiWinRateLabel: "Win Rate",
+                    performanceTitle: "Five-Year Performance",
+                    performanceSubtitle: "The strategy's equity curve shows a smooth upward trend, demonstrating strong stability and risk resistance through market cycles.",
+                    performanceGraphAlt: "Strategy Equity Curve Graph",
+                    coreAdvantageTitle: "Core Strategy Advantages",
+                    coreAdvantageSubtitle: "The original 'Trinity' intelligent filtering system ensures trades are executed only under the most favorable market conditions.",
+                    advantage1Title: "Macro Trend Judgment",
+                    advantage1Desc: "Uses the 200-period EMA to determine long-term market direction, ensuring trades follow the main trend and avoid unnecessary risks of counter-trend trading.",
+                    advantage2Title: "Trend Strength Confirmation",
+                    advantage2Desc: "Utilizes the ADX indicator to measure the 'strength' of a trend, effectively filtering out a large number of uncertain ranging markets.",
+                    advantage3Title: "Golden Hour Lock-in",
+                    advantage3Desc: "Trades only during the golden hours of the London/New York overlap to maximize profit potential and avoid low-liquidity risks.",
+                    gospelTitle: "A Boon for Office Workers",
+                    gospelSubtitle: "Our system is not just a trading tool, but a scientifically validated asset management solution that pursues long-term, stable compound interest.",
+                    feature1Title: "Stable Compounding",
+                    feature1Desc: "Pursues long-term, sustainable compound growth rather than short-term windfalls.",
+                    feature2Title: "Risk Control First",
+                    feature2Desc: "Aims for an extremely low drawdown of less than 20%, strictly adhering to the bottom line of capital safety.",
+                    feature3Title: "Intelligent Filtering",
+                    feature3Desc: "The original 'Trinity' filtering system ensures that trades are made only at the optimal moments.",
+                    feature4Title: "Free Up Your Time",
+                    feature4Desc: "The system runs fully automatically, allowing you to return to your work and life.",
+                    riskTitle: "Excellent Risk Resistance",
+                    riskSubtitle: "For investors, controlling drawdowns and protecting capital are the cornerstones of long-term survival. This strategy is exemplary in this regard.",
+                    riskPoint1: "<strong class='highlight-amber'>Extremely Low Drawdown:</strong> The maximum drawdown is only <span class='highlight-amber'>18.14%</span>, far below the industry's 30% risk threshold.",
+                    riskPoint2: "<strong class='highlight-blue'>Ultra-High Win Rate:</strong> A win rate of <span class='highlight-blue'>68.49%</span> greatly alleviates the psychological pressure on traders, making it easy to stick with.",
+                    riskPoint3: "<strong class='highlight-indigo'>Dynamic Risk Control:</strong> Adopts a dynamic risk model of <span class='highlight-indigo'>1% of the account balance</span> to automatically adjust positions and protect capital.",
+                    profitTitle: "Stable and Considerable Profits",
+                    profitSubtitle: "While maintaining strict risk control, the strategy still demonstrates strong, sustainable profitability.",
+                    profitPoint1: "<strong class='highlight-teal'>7-Fold Growth:</strong> Grew an initial capital of $1000 to $8328 within 5 years.",
+                    profitPoint2: "<strong class='highlight-teal'>Healthy Model:</strong> The profit factor is as high as <span class='highlight-teal'>1.81</span>, meaning for every $1 lost, $1.81 is earned.",
+                    profitPoint3: "<strong class='highlight-indigo'>Dynamic Profit-Taking:</strong> Uses a baseline trailing stop to accumulate small wins into large ones, ensuring a high win rate and low drawdown.",
+                    deepDiveTitle: "In-depth Report Analysis",
+                    deepDiveSubtitle: "What does a cold data report really mean in the eyes of different people?",
+                    avatarChenAlt: "Financial Elite Mr. Chen",
+                    chenName: "Mr. Chen",
+                    chenDesc: "A former Wall Street investment banking elite who managed assets worth hundreds of millions, now advising a family office. He believes in data, discipline, and long-termism, evaluating any investment target with the strictest institutional standards.",
+                    avatarZhangAlt: "Ordinary Office Worker Ms. Zhang",
+                    zhangName: "Ms. Zhang",
+                    zhangDesc: "An ordinary office worker in a major city, commuting daily through the concrete jungle. She hopes to find a safe, reliable, and low-effort side hustle to create a 'second income' for her family, adding more ease and choice to life.",
+                    audioTitle: "Expert vs. Regular Person - A Life-Facing Report Interpretation",
+                    audioSubtitle: "Click play to listen to an expert's in-depth analysis of the strategy.",
+                    audioNotSupported: "Your browser does not support the audio element.",
+                    chapter1Title: "Chapter 1: The Soul of the Strategy — Why Is It So Robust?",
+                    chenDialogue1Name: "Mr. Chen (Former Wall Street Elite):",
+                    chenDialogue1Text: "\"I've seen too many complex models, but the ones that ultimately survive market cycles are those that adhere to discipline and have strong filtering mechanisms. This strategy's '<span class='highlight-indigo'>Trinity</span>' system impresses me: it uses EMA to judge the major trend, ADX to confirm its strength, and a time window to lock onto the main battlefield. This is essentially **finding order in volatility**, eliminating most of the random noise, and leaving only high-probability trading opportunities. This is professional institutional-level risk control logic.\"",
+                    zhangDialogue1Name: "Ms. Zhang (Ordinary Office Worker):",
+                    zhangDialogue1Text: "\"To be honest, I don't fully understand all those complex indicators. But Mr. Chen's words made me realize one thing: I don't need to guess whether the market will go up or down every day. This system is like a smart robot that only makes a move when it's **most confident**. I can work with peace of mind and spend weekends with my family, without anxiously watching the market. This **certainty and sense of security** are more important to me than anything else.\"",
+                    chapter2Title: "Chapter 2: Risk and Return — Two Perspectives on the Path to Wealth Growth",
+                    zhangDialogue2Name: "Ms. Zhang:",
+                    zhangDialogue2Text: "\"For me, the most exciting plan is this—when my <span class='highlight-teal'>$1000 principal</span> doubles to $2000, I'll withdraw the $1000 principal. The rest is all profit, equivalent to a '<span class='highlight-indigo'>zero-cost</span>' asset working for me! Every time it doubles again, I can withdraw some money to buy a new phone for my family or plan a family trip. **This tangible, visible change is my biggest motivation for investing.**\"",
+                    chenDialogue2Name: "Mr. Chen:",
+                    chenDialogue2Text: "\"Ms. Zhang's plan is very clever and reflects the emphasis ordinary investors place on security. From an asset allocation perspective, the value of this strategy lies in providing a **'second growth curve' with extremely low correlation to subjective trading or traditional investments**. A maximum drawdown of <span class='highlight-amber'>18.14%</span> is exemplary for a high-volatility asset like gold. This means that even in the most unfavorable market conditions, the system's risk exposure is strictly controlled. **Holding a system with positive expectancy and controllable risk over the long term, through the power of the <span class='highlight-teal'>compounding effect</span>, will create astonishing wealth. That is the core of asset appreciation.**\"",
+                    downloadCenterTitle: "Download Center",
+                    downloadCenterSubtitle: "Dive deeper, verify for yourself. Get the detailed PDF analysis and the original HTML test data.",
+                    downloadPdfButton: "Download Detailed PDF Report",
+                    viewHtmlButton: "View Original HTML Data",
+                    footerText: "© 2025 Lecheng AI Auto Compounding Trading System. All Rights Reserved."
+                },
+                'zh-CN': {
+                    pageTitle: "乐成AI智能自动复利交易系统 - 综合报告",
+                    headerTitle: "乐成AI智能自动复利交易系统",
+                    headerSubtitle: "五年<span class='highlight-teal'>732%</span>回报率，专为稳健投资者打造,风险控制与稳定盈利的典范",
+                    kpiTotalProfitLabel: "总净利润",
+                    kpiProfitFactorLabel: "盈利因子",
+                    kpiMaxDrawdownLabel: "最大回撤",
+                    kpiWinRateLabel: "胜率",
+                    performanceTitle: "五年业绩表现",
+                    performanceSubtitle: "策略净值曲线平滑向上，展示了强大的稳定性和穿越牛熊的抗风险能力。",
+                    performanceGraphAlt: "策略净值曲线图",
+                    coreAdvantageTitle: "策略核心优势",
+                    coreAdvantageSubtitle: "独创的“<span class='highlight-indigo'>三位一体</span>”智能过滤系统，确保只在最有利的市场条件下执行交易。",
+                    advantage1Title: "宏观趋势判断",
+                    advantage1Desc: "运用<span class='highlight-blue'>200周期EMA</span>判断长期市场方向，确保只顺应大势，避免逆势交易带来的不必要风险。",
+                    advantage2Title: "趋势强度确认",
+                    advantage2Desc: "利用<span class='highlight-blue'>ADX指标</span>衡量趋势的“力量”，有效过滤大量充满不确定性的盘整行情。",
+                    advantage3Title: "黄金时段锁定",
+                    advantage3Desc: "只在<span class='highlight-blue'>伦敦/纽约重叠</span>的黄金时段交易，最大化盈利潜力，规避低流动性风险。",
+                    gospelTitle: "打工族福音",
+                    gospelSubtitle: "我们的系统并非简单的交易工具，而是一套经过科学验证、追求长期稳定复利的资产管理方案。",
+                    feature1Title: "<span class='highlight-teal'>稳定复利</span>",
+                    feature1Desc: "追求长期、可持续的复利增长，而非短期暴利。",
+                    feature2Title: "<span class='highlight-amber'>风控优先</span>",
+                    feature2Desc: "以低于20%的极低回撤为目标，严守资金安全底线。",
+                    feature3Title: "<span class='highlight-indigo'>智能过滤</span>",
+                    feature3Desc: "独创“三位一体”过滤系统，只在最佳时机出手。",
+                    feature4Title: "<span class='highlight-teal'>解放时间</span>",
+                    feature4Desc: "系统全自动运行，让您回归工作与生活。",
+                    riskTitle: "卓越的抗风险能力",
+                    riskSubtitle: "对于投资者而言，控制回撤、保护本金是长期生存的基石。本策略在这方面表现堪称典范。",
+                    riskPoint1: "<strong class='highlight-amber'>极低回撤：</strong>最大回撤仅为<span class='highlight-amber'>18.14%</span>，远低于行业30%的风险阈值。",
+                    riskPoint2: "<strong class='highlight-blue'>超高胜率：</strong><span class='highlight-blue'>68.49%</span>的胜率极大缓解交易者心理压力，易于坚持。",
+                    riskPoint3: "<strong class='highlight-indigo'>动态风控：</strong>采用<span class='highlight-indigo'>1%账户余额</span>的动态风险模型，自动调整仓位，保护本金。",
+                    profitTitle: "稳定且可观的盈利",
+                    profitSubtitle: "在严格风控的前提下，策略依然展现了强大的、可持续的盈利能力。",
+                    profitPoint1: "<strong class='highlight-teal'>7倍增长：</strong>5年内将$1000初始资金增长至$8328。",
+                    profitPoint2: "<strong class='highlight-teal'>健康模型：</strong>盈利因子高达<span class='highlight-teal'>1.81</span>，每亏损1美元，能赚回1.81美元。",
+                    profitPoint3: "<strong class='highlight-indigo'>动态止盈：</strong>采用基准线追踪止损，积小胜为大胜，是高胜率和低回撤的保障。",
+                    deepDiveTitle: "报告深度解读",
+                    deepDiveSubtitle: "一份冰冷的数据报告，在不同人的眼中，究竟意味着什么？",
+                    avatarChenAlt: "金融精英陈总",
+                    chenName: "陈总",
+                    chenDesc: "前华尔街投行精英，管理过亿级资产，现为家族办公室提供咨询。他信奉数据、纪律和长期主义，对任何投资标的都以最严苛的机构标准进行评估。",
+                    avatarZhangAlt: "普通上班族小张",
+                    zhangName: "小张",
+                    zhangDesc: "国内一线城市普通上班族，每日通勤于钢筋水泥的丛林。他希望寻找一个安全、可靠、不占用太多精力的副业，为家庭创造“第二收入”，让生活多一份从容和选择。",
+                    audioTitle: "金融专家VS普通上班族--直面人生的报告解读",
+                    audioSubtitle: "点击播放，聆听专家对策略的深度剖析。",
+                    audioNotSupported: "您的浏览器不支持音频播放。",
+                    chapter1Title: "第一章：策略的灵魂 —— 为何它能如此稳健？",
+                    chenDialogue1Name: "陈总（前华尔街精英）：",
+                    chenDialogue1Text: "“我见过太多复杂的模型，但最终能穿越周期的，一定是那些坚守纪律、拥有强大过滤机制的系统。这套策略的‘<span class='highlight-indigo'>三位一体</span>’过滤系统让我印象深刻：它用EMA判断大势，用ADX确认力度，再用时间窗口锁定主战场。这本质上是**在波动中寻找秩序**，排除了绝大部分的随机干扰，只留下高概率的交易机会。这是专业机构级别的风控逻辑。”",
+                    zhangDialogue1Name: "小张（普通上班族）：",
+                    zhangDialogue1Text: "“说实话，那些复杂的指标我并不全懂。但陈总的话让我明白了一点：我不需要每天去猜市场会涨还是会跌。这个系统就像一个聪明的机器人，它只在**最有把握的时候**才出手。我平时安心上班，周末陪伴家人，不用提心吊胆地看盘，这种**确定性和安全感**，对我来说比什么都重要。”",
+                    chapter2Title: "第二章：风险与回报 —— 两种视角下的财富增长之路",
+                    zhangDialogue2Name: "小张：",
+                    zhangDialogue2Text: "“对我来说，最激动人心的计划是——当我的<span class='highlight-teal'>$1000本金</span>翻倍到$2000时，我就把$1000本金取出来。剩下的就全是利润了，相当于一个‘<span class='highlight-indigo'>零成本</span>’的资产在为我工作！以后每当它再翻倍，我都能取出一部分钱，给家人换个新手机，或者计划一次全家旅行。**这种看得见、摸得着的改变，就是我投资的最大动力。**”",
+                    chenDialogue2Name: "陈总：",
+                    chenDialogue2Text: "“小张的计划非常聪明，体现了普通投资者对安全性的重视。而从资产配置的角度看，这套策略的价值在于它提供了一条**与主观交易或传统投资相关性极低的‘<span class='highlight-indigo'>第二增长曲线</span>’**。<span class='highlight-amber'>18.14%的最大回撤</span>，对于黄金这种高波动品种而言堪称典范。这意味着，即使在最不利的行情下，系统的风险敞口也得到了严格控制。**长期持有这样一套正向期望且风险可控的系统，通过<span class='highlight-teal'>复利效应</span>，其最终创造的财富将是惊人的。这才是资产增值的核心。**”",
+                    downloadCenterTitle: "下载中心",
+                    downloadCenterSubtitle: "深入了解，亲自验证。获取详细的PDF分析报告和原始HTML测试数据。",
+                    downloadPdfButton: "下载PDF详细报告",
+                    viewHtmlButton: "查看原始HTML数据",
+                    footerText: "© 2025 乐成AI智能自动复利交易系统. All Rights Reserved."
+                },
+                'zh-TW': {
+                    pageTitle: "樂成AI智能自動複利交易系統 - 綜合報告",
+                    headerTitle: "樂成AI智能自動複利交易系統",
+                    headerSubtitle: "五年<span class='highlight-teal'>732%</span>回報率，專為穩健投資者打造,風險控制與穩定盈利的典範",
+                    kpiTotalProfitLabel: "總淨利潤",
+                    kpiProfitFactorLabel: "盈利因子",
+                    kpiMaxDrawdownLabel: "最大回撤",
+                    kpiWinRateLabel: "勝率",
+                    performanceTitle: "五年業績表現",
+                    performanceSubtitle: "策略淨值曲線平滑向上，展示了強大的穩定性和穿越牛熊的抗風險能力。",
+                    performanceGraphAlt: "策略淨值曲線圖",
+                    coreAdvantageTitle: "策略核心優勢",
+                    coreAdvantageSubtitle: "獨創的「<span class='highlight-indigo'>三位一體</span>」智能過濾系統，確保只在最有利的市場條件下執行交易。",
+                    advantage1Title: "宏觀趨勢判斷",
+                    advantage1Desc: "運用<span class='highlight-blue'>200週期EMA</span>判斷長期市場方向，確保只順應大勢，避免逆勢交易帶來的不必要風險。",
+                    advantage2Title: "趨勢強度確認",
+                    advantage2Desc: "利用<span class='highlight-blue'>ADX指標</span>衡量趨勢的「力量」，有效過濾大量充滿不確定性的盤整行情。",
+                    advantage3Title: "黃金時段鎖定",
+                    advantage3Desc: "只在<span class='highlight-blue'>倫敦/紐約重疊</span>的黃金時段交易，最大化盈利潛力，規避低流動性風險。",
+                    gospelTitle: "上班族福音",
+                    gospelSubtitle: "我們的系統並非簡單的交易工具，而是一套經過科學驗證、追求長期穩定複利的資產管理方案。",
+                    feature1Title: "<span class='highlight-teal'>穩定複利</span>",
+                    feature1Desc: "追求長期、可持續的複利增長，而非短期暴利。",
+                    feature2Title: "<span class='highlight-amber'>風控優先</span>",
+                    feature2Desc: "以低於20%的極低回撤為目標，嚴守資金安全底線。",
+                    feature3Title: "<span class='highlight-indigo'>智能過濾</span>",
+                    feature3Desc: "獨創「三位一體」過濾系統，只在最佳時機出手。",
+                    feature4Title: "<span class='highlight-teal'>解放時間</span>",
+                    feature4Desc: "系統全自動運行，讓您回歸工作與生活。",
+                    riskTitle: "卓越的抗風險能力",
+                    riskSubtitle: "對於投資者而言，控制回撤、保護本金是長期生存的基石。本策略在這方面表現堪稱典範。",
+                    riskPoint1: "<strong class='highlight-amber'>極低回撤：</strong>最大回撤僅為<span class='highlight-amber'>18.14%</span>，遠低於行業30%的風險閾值。",
+                    riskPoint2: "<strong class='highlight-blue'>超高勝率：</strong><span class='highlight-blue'>68.49%</span>的勝率極大緩解交易者心理壓力，易於堅持。",
+                    riskPoint3: "<strong class='highlight-indigo'>動態風控：</strong>採用<span class='highlight-indigo'>1%帳戶餘額</span>的動態風險模型，自動調整倉位，保護本金。",
+                    profitTitle: "穩定且可觀的盈利",
+                    profitSubtitle: "在嚴格風控的前提下，策略依然展現了強大的、可持續的盈利能力。",
+                    profitPoint1: "<strong class='highlight-teal'>7倍增長：</strong>5年內將$1000初始資金增長至$8328。",
+                    profitPoint2: "<strong class='highlight-teal'>健康模型：</strong>盈利因子高達<span class='highlight-teal'>1.81</span>，每虧損1美元，能賺回1.81美元。",
+                    profitPoint3: "<strong class='highlight-indigo'>動態止盈：</strong>採用基準線追蹤止損，積小勝為大勝，是高勝率和低回撤的保障。",
+                    deepDiveTitle: "報告深度解讀",
+                    deepDiveSubtitle: "一份冰冷的數據報告，在不同人的眼中，究竟意味著什麼？",
+                    avatarChenAlt: "金融精英陳總",
+                    chenName: "陳總",
+                    chenDesc: "前華爾街投行精英，管理過億級資產，現為家族辦公室提供諮詢。他信奉數據、紀律和長期主義，對任何投資標的都以最嚴苛的機構標準進行評估。",
+                    avatarZhangAlt: "普通上班族小張",
+                    zhangName: "小張",
+                    zhangDesc: "國內一線城市普通上班族，每日通勤於鋼筋水泥的叢林。他希望尋找一個安全、可靠、不佔用太多精力的副業，為家庭創造「第二收入」，讓生活多一份從容和選擇。",
+                    audioTitle: "金融專家VS普通上班族--直面人生的報告解讀",
+                    audioSubtitle: "點擊播放，聆聽專家對策略的深度剖析。",
+                    audioNotSupported: "您的瀏覽器不支持音頻播放。",
+                    chapter1Title: "第一章：策略的靈魂 —— 為何它能如此穩健？",
+                    chenDialogue1Name: "陳總（前華爾街精英）：",
+                    chenDialogue1Text: "「我見過太多複雜的模型，但最終能穿越週期的，一定是那些堅守紀律、擁有強大過濾機制的系統。這套策略的『<span class='highlight-indigo'>三位一體</span>』過濾系統讓我印象深刻：它用EMA判斷大勢，用ADX確認力度，再用時間窗口鎖定主戰場。這本質上是**在波動中尋找秩序**，排除了絕大部分的隨機干擾，只留下高概率的交易機會。這是專業機構級別的風控邏輯。」",
+                    zhangDialogue1Name: "小張（普通上班族）：",
+                    zhangDialogue1Text: "「說實話，那些複雜的指標我並不全懂。但陳總的話讓我明白了一點：我不需要每天去猜市場會漲還是會跌。這個系統就像一個聰明的機器人，它只在**最有把握的時候**才出手。我平時安心上班，週末陪伴家人，不用提心吊膽地看盤，這種**確定性和安全感**，對我來說比什麼都重要。」",
+                    chapter2Title: "第二章：風險與回報 —— 兩種視角下的財富增長之路",
+                    zhangDialogue2Name: "小張：",
+                    zhangDialogue2Text: "「對我來說，最激動人心的計畫是——當我的<span class='highlight-teal'>$1000本金</span>翻倍到$2000時，我就把$1000本金取出來。剩下的就全是利潤了，相當於一個『<span class='highlight-indigo'>零成本</span>』的資產在為我工作！以後每當它再翻倍，我都能取出一部分錢，給家人換個新手機，或者計畫一次全家旅行。**這種看得見、摸得著的改變，就是我投資的最大動力。**」",
+                    chenDialogue2Name: "陳總：",
+                    chenDialogue2Text: "「小張的計畫非常聰明，體現了普通投資者對安全性的重視。而從資產配置的角度看，這套策略的價值在於它提供了一條**與主觀交易或傳統投資相關性極低的『<span class='highlight-indigo'>第二增長曲線</span>』**。<span class='highlight-amber'>18.14%的最大回撤</span>，對於黃金這種高波動品種而言堪稱典範。這意味著，即使在最不利的行情下，系統的風險敞口也得到了嚴格控制。**長期持有這樣一套正向期望且風險可控的系統，通過<span class='highlight-teal'>複利效應</span>，其最終創造的財富將是驚人的。這才是資產增值的核心。**」",
+                    downloadCenterTitle: "下載中心",
+                    downloadCenterSubtitle: "深入了解，親自驗證。獲取詳細的PDF分析報告和原始HTML測試數據。",
+                    downloadPdfButton: "下載PDF詳細報告",
+                    viewHtmlButton: "查看原始HTML數據",
+                    footerText: "© 2025 樂成AI智能自動複利交易系統. All Rights Reserved."
+                }
+            };
+
+            const languageSwitcher = document.getElementById('language-switcher');
+
+            // --- 2. TRANSLATION FUNCTION ---
+            const translatePage = (lang) => {
+                document.querySelectorAll('[data-lang-key]').forEach(element => {
+                    const key = element.dataset.langKey;
+                    const translation = translations[lang][key];
+                    if (translation !== undefined) {
+                        // For most elements, innerHTML is fine, especially since we have HTML tags in translations
+                        if (element.tagName === 'IMG' || element.tagName === 'SOURCE') {
+                            if(element.hasAttribute('alt')) element.alt = translation;
+                        } else {
+                            element.innerHTML = translation;
+                        }
+                    }
+                });
+                // Set the page title
+                document.title = translations[lang].pageTitle;
+                // Set the root html lang attribute
+                document.documentElement.lang = lang.startsWith('zh') ? lang : 'en';
+            };
+
+            // --- 3. LANGUAGE DETECTION ---
+            const getInitialLanguage = () => {
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('zh-CN')) {
+                    return 'zh-CN';
+                } else if (browserLang.startsWith('zh-TW') || browserLang.startsWith('zh-HK') || browserLang.startsWith('zh-Hant')) {
+                    return 'zh-TW';
+                } else {
+                    return 'en'; // Default to English
+                }
+            };
+
+            // --- 4. EVENT LISTENERS ---
+            // Set initial language on page load
+            const initialLang = getInitialLanguage();
+            languageSwitcher.value = initialLang;
+            translatePage(initialLang);
+
+            // Handle manual language change
+            languageSwitcher.addEventListener('change', (event) => {
+                translatePage(event.target.va
